@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    crazy_train (0.1.0)
+    crazy_train (0.1.1)
       api_error_handler (~> 0.2.1)
       rails (>= 6.0.0)
 
