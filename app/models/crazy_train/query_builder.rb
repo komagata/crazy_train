@@ -11,11 +11,13 @@ module CrazyTrain
 
     def parse!
       @query = klass.all
-
     end
 
     def parse_order!
-      @order.split(',')
+      orders = @order.split(',')
+      orders.each do |order_text|
+        order_text.split('.')
+      end
 
     end
 
