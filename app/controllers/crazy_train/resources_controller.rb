@@ -1,8 +1,13 @@
 module CrazyTrain
   class ResourcesController < ApplicationController
     def index
-      resources = klass.all
-      render json: resources
+      query_builder = CrazyTrain::QueryBuilder.new(
+        klass,
+        order: params[:order]
+      )
+      query_builder.parse!
+
+      render json: query_builder.to_query
     end
 
     def show
