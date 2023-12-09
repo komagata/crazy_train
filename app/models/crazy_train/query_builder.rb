@@ -1,6 +1,5 @@
 module CrazyTrain
   class QueryBuilder
-
     def initialize(
       klass,
       order: nil
@@ -11,19 +10,13 @@ module CrazyTrain
 
     def parse!
       @query = klass.all
-    end
 
-    def parse_order!
-      orders = @order.split(',')
-      orders.each do |order_text|
-        order_text.split('.')
-      end
-
+      @order_parser = CrazyTrain::OrderParser.new(order)
+      @order_parser.parse!
     end
 
     def to_query
       @query
     end
-
   end
 end
