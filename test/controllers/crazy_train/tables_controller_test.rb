@@ -1,10 +1,10 @@
-require "test_helper"
+require 'test_helper'
 
 module CrazyTrain
   class TablesControllerTest < ActionDispatch::IntegrationTest
     include Engine.routes.url_helpers
 
-    test "should get index" do
+    test 'should get index' do
       get tables_url
       assert_response :success
     end

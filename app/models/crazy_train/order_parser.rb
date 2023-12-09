@@ -4,8 +4,6 @@ module CrazyTrain
       @order_text = order_text
     end
 
-    def parse!
-
-    end
+    def parse!; end
   end
 end
