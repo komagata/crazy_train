@@ -1,22 +1,26 @@
 module CrazyTrain
   class QueryBuilder
-    def initialize(
-      klass,
-      order: nil
-    )
+    attr_reader :klass, :params, :query, :orders
+
+    def initialize(klass, params)
       @klass = klass
-      @order = order
+      @params = params
+      @query = nil
+      @orders = []
     end
 
     def parse!
       @query = klass.all
 
-      @order_parser = CrazyTrain::OrderParser.new(order)
-      @order_parser.parse!
-    end
+      return unless params[:order]
 
-    def to_query
-      @query
+      @order_parser = CrazyTrain::OrderParser.new(params[:order])
+      @order_parser.parse!
+      @orders = @order_parser.orders
+      @query = @query.order(@orders)
+
+      # if params[:select]
+      # end
     end
   end
 end

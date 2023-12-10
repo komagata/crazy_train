@@ -12,5 +12,7 @@ gem 'sprockets-rails'
 
 gem 'rubocop-rails', require: false
 
+gem 'rubocop-minitest', require: false
+
 # Start debugger with binding.b [https://github.com/ruby/debug]
 # gem "debug", ">= 1.0.0"

@@ -6,7 +6,12 @@ module CrazyTrain
 
     test 'should get index' do
       get tables_url
+
       assert_response :success
+
+      expected = %w[announcements users notes]
+
+      assert_equal expected, response.parsed_body
     end
   end
 end
