@@ -3,6 +3,7 @@ PATH
   specs:
     crazy_train (0.1.0)
       api_error_handler (~> 0.2.1)
+      jwt (~> 2.2, >= 2.2.1)
       rails (>= 6.0.0)
 
 GEM
@@ -106,6 +107,7 @@ GEM
       rdoc
       reline (>= 0.3.8)
     json (2.7.1)
+    jwt (2.7.1)
     language_server-protocol (3.17.0.3)
     loofah (2.22.0)
       crass (~> 1.0.2)

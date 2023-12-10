@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency 'api_error_handler', '~> 0.2.1'
+  spec.add_dependency 'jwt', '~> 2.2', '>= 2.2.1'
   spec.add_dependency 'rails', '>= 6.0.0'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end

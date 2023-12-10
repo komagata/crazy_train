@@ -4,7 +4,8 @@ module CrazyTrain
       query_builder = CrazyTrain::QueryBuilder.new(klass, params)
       query_builder.parse!
 
-      render json: query_builder.query
+      records = query_builder.query
+      render json: records
     end
 
     def show
