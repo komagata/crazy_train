@@ -1,11 +1,7 @@
+require 'crazy_train'
+
 namespace :crazy_train do
   task generate_token: :environment do
-    puts CrazyTrain::JWT.encode(
-      {
-        'iss' => 'crazy_train',
-        'user_id' => 1234
-      },
-      CrazyTrain.config.secret
-    )
+    puts CrazyTrain::JWT.generate_token(ENV.fetch('PAYLOAD', nil))
   end
 end

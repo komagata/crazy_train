@@ -9,5 +9,10 @@ module CrazyTrain
     def self.decode(token, secret = CrazyTrain.config.secret)
       ::JWT.decode(token, secret, true, HEADERS)
     end
+
+    def self.generate_token(payload_string)
+      payload = JSON.parse(payload_string || '{}')
+      encode(payload)
+    end
   end
 end

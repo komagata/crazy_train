@@ -1,6 +1,6 @@
 ![CrazyTrain Logo](./crazy_train.png)
 
-*I'm going off the rails on a crazy train*
+*I'm going off the rails on a crazy train.*
 
 # CrazyTrain
 
