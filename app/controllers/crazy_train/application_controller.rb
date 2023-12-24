@@ -10,12 +10,14 @@ module CrazyTrain
 
     def verify_token
       @default_role = CrazyTrain.current_role
-      @role = if jwt_token && jwt_payload && jwt_payload['iss'] == 'crazy_train'
+      @role = if jwt_token && jwt_payload
                 jwt_payload['role'] || CrazyTrain.config.authenticated_role
               else
                 CrazyTrain.config.unauthorized_role
               end
-      # set_db_configs!
+
+      payload_string = JSON.generate(jwt_payload)
+      CrazyTrain.setup_jwt_claims!(payload_string)
     end
 
     def setup_role
@@ -33,23 +35,13 @@ module CrazyTrain
     def jwt_token
       request.headers['Authorization'].split.last
     rescue StandardError
-      ''
+      nil
     end
 
     def jwt_payload
       CrazyTrain::JWT.decode(jwt_token, CrazyTrain.config.secret).first
     rescue StandardError
-      {}
-    end
-
-    def other_payload
-      jwt_payload.reject { %w[iss role].include? _1 }
-    end
-
-    def set_db_configs!
-      other_payload.each do |k, v|
-        CrazyTrain.set_db_config(k, v)
-      end
+      nil
     end
   end
 end

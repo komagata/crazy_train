@@ -27,11 +27,13 @@ module CrazyTrain
     ActiveRecord::Base.connection.execute('SELECT current_setting').to_a.first['current_setting']
   end
 
-  def self.set_db_config(key, value)
-    ActiveRecord::Base.connection.execute("SELECT set_config('#{key}', '#{value}', true)")
+  def self.setup_jwt_claims!(paylaod)
+    ActiveRecord::Base.connection.execute("SET request.jwt.claims = '#{paylaod}'")
   end
 
-  def self.set_jwt_claims
-    ActiveRecord::Base.connection.execute("SELECT set_config('request.jwt.claims', '#{value}', true)")
+  def self.request_jwt_claims
+    sql = "SELECT current_setting('request.jwt.claims', true) AS request_jwt_claims"
+    string = ActiveRecord::Base.connection.execute(sql).to_a.first['request_jwt_claims']
+    JSON.parse(string)
   end
 end
