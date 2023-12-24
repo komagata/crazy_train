@@ -1,8 +1,11 @@
 ![CrazyTrain Logo](./crazy_train.png)
 
-*This gem is still unstable and should be used with extreme caution in a production environment.*
+
 
 # CrazyTrain
+
+*This gem is still unstable.*
+
 Provides a RESTful API for database tables for your rails apps.
 
 ## Usage
