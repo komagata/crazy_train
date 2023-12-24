@@ -14,5 +14,9 @@ module CrazyTrain
       payload = JSON.parse(payload_string || '{}')
       encode(payload)
     end
+
+    def self.generate_jwt_secret
+      SecureRandom.alphanumeric(32)
+    end
   end
 end

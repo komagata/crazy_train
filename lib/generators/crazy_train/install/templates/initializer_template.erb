@@ -1,0 +1,5 @@
+CrazyTrain.setup do |config|
+  config.secret = '<%= CrazyTrain::JWT.generate_jwt_secret %>'
+  config.unauthorized_role = 'anonymous'
+  config.authorized_role = 'authenticated'
+end
