@@ -8,6 +8,8 @@ gem 'puma'
 
 gem 'sqlite3'
 
+gem 'pg'
+
 gem 'sprockets-rails'
 
 gem 'rubocop-rails', require: false
