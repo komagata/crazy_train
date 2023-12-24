@@ -3,11 +3,11 @@ require_relative 'lib/crazy_train/version'
 Gem::Specification.new do |spec|
   spec.name        = 'crazy_train'
   spec.version     = CrazyTrain::VERSION
-  spec.authors     = ['komagata']
+  spec.authors     = ['Masaki Komagata']
   spec.email       = ['komagata@gmail.com']
   spec.homepage    = 'https://github.com/komagata/crazy_train'
-  spec.summary     = 'Provides a RESTful API to DB tables.'
-  spec.description = 'Provides a RESTful API for database tables for your rails apps.'
+  spec.summary     = 'Provides a RESTful API into your rails apps.'
+  spec.description = 'Provides a RESTful API for database tables into your rails apps.'
 
   spec.required_ruby_version = '>= 2.6.0'
 
