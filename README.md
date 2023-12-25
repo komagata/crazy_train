@@ -101,7 +101,7 @@ The token allows you to access the API in an authenticated state.
 
 ```console
 $ curl curl http://localhost:3000/api/posts/1234 \
-  -H "Authorization: Bearer aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  -H "Authorization: Bearer aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 {
   "id": 1234,
   "content": "crazy"
@@ -125,7 +125,7 @@ When the API is accessed using this token, the DB is accessed as an `admin` ROLE
 
 ```console
 $ curl curl http://localhost:3000/api/posts/1234 \
-  -H "Authorization: Bearer bbbbbbbbbbbbbbbbbbbbbbbbbbb
+  -H "Authorization: Bearer bbbbbbbbbbbbbbbbbbbbbbbbbbb"
 {
   "id": 1234,
   "content": "crazy"
