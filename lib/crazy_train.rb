@@ -1,7 +1,8 @@
 require 'crazy_train/version'
 require 'crazy_train/engine'
+require 'crazy_train/grant'
+require 'crazy_train/role'
 require 'crazy_train/jwt'
-require 'jwt'
 
 module CrazyTrain
   Config = Struct.new(:secret, :unauthorized_role, :authenticated_role)

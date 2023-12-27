@@ -6,7 +6,7 @@ ActiveRecord::Migrator.migrations_paths = [File.expand_path('../test/dummy/db/mi
 ActiveRecord::Migrator.migrations_paths << File.expand_path('../db/migrate', __dir__)
 require 'rails/test_help'
 
-require_relative '../lib/crazy_train/grant'
+require_relative '../lib/crazy_train'
 CrazyTrain::Grant.execute!
 
 # Load fixtures from the engine

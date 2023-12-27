@@ -2,6 +2,8 @@ require 'jwt'
 
 module CrazyTrain
   class ApplicationController < ActionController::Base
+    include CrazyTrain::Role
+
     handle_api_errors
 
     before_action :verify_token
@@ -9,7 +11,7 @@ module CrazyTrain
     after_action :teardown_role
 
     def verify_token
-      @default_role = CrazyTrain.current_role
+      @default_role = current_role
       @role = if jwt_token && jwt_payload
                 jwt_payload['role'] || CrazyTrain.config.authenticated_role
               else
@@ -26,10 +28,6 @@ module CrazyTrain
 
     def teardown_role
       switch_role(@default_role)
-    end
-
-    def switch_role(role)
-      ActiveRecord::Base.connection.execute("SET ROLE #{role};")
     end
 
     def jwt_token

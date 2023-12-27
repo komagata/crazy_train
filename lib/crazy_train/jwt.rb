@@ -1,3 +1,5 @@
+require 'jwt'
+
 module CrazyTrain
   class JWT
     HEADERS = { 'alg' => 'HS256', 'typ' => 'JWT' }.freeze
