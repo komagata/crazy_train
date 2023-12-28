@@ -12,14 +12,23 @@ module CrazyTrain
 
     def verify_token
       @default_role = current_role
-      @role = if jwt_token && jwt_payload
-                jwt_payload['role'] || CrazyTrain.config.authenticated_role
-              else
-                CrazyTrain.config.unauthorized_role
-              end
 
-      payload_string = JSON.generate(jwt_payload)
-      CrazyTrain.setup_jwt_claims!(payload_string)
+      if bearer.nil?
+        @role = CrazyTrain.config.unauthorized_role
+        return
+      end
+
+      jwt = CrazyTrain::JWT.new(bearer)
+      jwt.decode!
+
+      @role =
+        if jwt.valid?
+          jwt.role || CrazyTrain.config.authenticated_role
+        else
+          CrazyTrain.config.unauthorized_role
+        end
+
+      CrazyTrain.setup_jwt_claims!(jwt.payload_string)
     end
 
     def setup_role
@@ -30,16 +39,10 @@ module CrazyTrain
       switch_role(@default_role)
     end
 
-    def jwt_token
-      request.headers['Authorization'].split.last
-    rescue StandardError
-      nil
-    end
+    private
 
-    def jwt_payload
-      CrazyTrain::JWT.decode(jwt_token, CrazyTrain.config.secret).first
-    rescue StandardError
-      nil
+    def bearer
+      request.headers['Authorization']&.sub(/^Bearer: /, '')
     end
   end
 end
