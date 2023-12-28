@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in crazy_train.gemspec.
 gemspec
 
+gem 'bundler-audit'
+
 gem 'puma'
 
 gem 'sqlite3'
