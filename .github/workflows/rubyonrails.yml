@@ -36,7 +36,7 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
       - name: Run tests
-        run: bin/rails test
+        run: bundle exec rails test
 
   lint:
     runs-on: ubuntu-latest
@@ -48,4 +48,4 @@ jobs:
         with:
           bundler-cache: true
       - name: Lint Ruby files
-        run: bin/rubocop --parallel
+        run: bundle exec rubocop --parallel

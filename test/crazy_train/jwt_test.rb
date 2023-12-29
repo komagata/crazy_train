@@ -6,7 +6,11 @@ module CrazyTrain
       @headers = { 'alg' => 'HS256', 'typ' => 'JWT' }.freeze
       @payload = { 'iss' => 'crazy_train' }.freeze
       @secret = '0123456789'
-      @token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjcmF6eV90cmFpbiJ9.a-9Uf4KIyYpOIGODLc5pXP2bY3DHQ-lNtmE-RK8sWgo'
+      @token =  %w[
+        eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+        eyJpc3MiOiJjcmF6eV90cmFpbiJ9
+        a-9Uf4KIyYpOIGODLc5pXP2bY3DHQ-lNtmE-RK8sWgo
+      ].join('.')
     end
 
     test '.encode' do
