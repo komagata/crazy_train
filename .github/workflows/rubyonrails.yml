@@ -48,4 +48,4 @@ jobs:
         with:
           bundler-cache: true
       - name: Lint Ruby files
-        run: bundle exec rubocop --parallel
+        run: bin/rubocop --parallel
