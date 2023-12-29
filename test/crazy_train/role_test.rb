@@ -11,9 +11,7 @@ module CrazyTrain
     end
 
     test '#current_role' do
-      user = `whoami`.strip
-      @foo.switch_role(user)
-      expected = ENV['GITHUB_ACTIONS'] ? 'runner' : user
+      expected = ENV['GITHUB_ACTIONS'] ? 'runner' : `whoami`.strip
 
       assert_equal expected, @foo.current_role
     end
