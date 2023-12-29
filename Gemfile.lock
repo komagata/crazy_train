@@ -91,9 +91,6 @@ GEM
     base64 (0.2.0)
     bigdecimal (3.1.4)
     builder (3.2.4)
-    bundler-audit (0.9.1)
-      bundler (>= 1.2.0, < 3)
-      thor (~> 1.0)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -244,7 +241,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bundler-audit
   crazy_train!
   pg
   puma
