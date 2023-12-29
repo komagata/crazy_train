@@ -34,9 +34,9 @@ jobs:
         with:
           bundler-cache: true
       - name: Set up database schema
-        run: bin/rails db:schema:load
+        run: bin/rails db:migrate:reset
       - name: Run tests
-        run: bundle exec rails test
+        run: bin/rails test
 
   lint:
     runs-on: ubuntu-latest
