@@ -6,6 +6,7 @@ AllCops:
   TargetRubyVersion: 2.6
   NewCops: enable
   Exclude:
+    - 'vendor/**/*'
     - 'bin/*'
     - 'test/dummy/config/**/*'
     - 'test/test_helper.rb'
